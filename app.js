@@ -22,7 +22,7 @@ mongoose.connect("mongodb+srv://admin-shubham:test123@cluster0.s1tgtbp.mongodb.n
 });
 
 // switching to heroku port from localhost
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 4000, function(){
   console.log("Server is running.....");
 });
 
