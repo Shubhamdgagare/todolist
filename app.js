@@ -22,11 +22,11 @@ mongoose.connect("mongodb+srv://admin-shubham:test123@cluster0.s1tgtbp.mongodb.n
 });
 
 // switching to heroku port from localhost
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, function(){
-  console.log("Server is running.....");
-});
+const PORT = process.env.PORT || 8000;
 
+app.listen(PORT, function(){
+  console.log("Server is running at port : " + PORT);
+});
 
 // creating item database model +++++
 // crating Schema
@@ -147,17 +147,8 @@ app.get("/:customeListName", function(req, res) {
       }
     }
   });
-
-
-
 });
 
 app.get("/about", function(req, res) {
   res.render("about");
-});
-
-// switching to heroku port from localhost
-
-app.listen(process.env.PORT || 3000, function() {
-  console.log("Server has started successfully");
 });
