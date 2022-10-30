@@ -21,6 +21,12 @@ mongoose.connect("mongodb+srv://admin-shubham:test123@cluster0.s1tgtbp.mongodb.n
   useNewUrlParser: true
 });
 
+// switching to heroku port from localhost
+app.listen(process.env.PORT || 3000, function() {
+  console.log("Server has started successfully");
+});
+
+
 // creating item database model +++++
 // crating Schema
 const itemsSchema = {
@@ -39,24 +45,6 @@ const item3 = new Item({
 });
 
 const defaultItems = [item1, item2, item3];
-
-// save multiple collectins +++++++++
-// Item.insertMany(defaultItems, function(err){
-//   if (err){
-//     console.log(err);
-//   }else{
-//     console.log("Successfully saved all items to todolistDB.")
-//   }
-// });
-
-// deleting items in list +++++++++
-// Item.deleteMany({ _id : "634d337638d9e5374ee3d14d"}, function(err){
-//   if (err){
-//     console.log(err);
-//   }else{
-//     console.log("Succssfully deleted the item.");
-//   }
-// });
 
 // Creating custom list schema ++++++
 const listSchema = {
@@ -167,13 +155,8 @@ app.get("/about", function(req, res) {
   res.render("about");
 });
 
-
 // switching to heroku port from localhost
-let port = process.env.PORT;
-if(port == null || port == "") {
-  port = 3000;
-}
 
-app.listen(port, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server has started successfully");
 });
