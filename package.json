@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+  "postinstall": "npm run build",
+  "start": "node server.js"
   },
   "author": "Shubham Gagare",
   "license": "ISC",
