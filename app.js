@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // creating database with .connect ++++
-mongoose.connect("mongodb+srv://admin-shubham:test123@cluster0.s1tgtbp.mongodb.net/todolistDB", {
+mongoose.connect(process.env.MONGOKEY, {
   useNewUrlParser: true
 });
 
